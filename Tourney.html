@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tournament Schedule</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
@@ -28,10 +30,6 @@
             display: flex;
             justify-content: center;
             gap: 10px;
-            overflow-x: auto;
-            overflow-y: hidden;
-            -webkit-overflow-scrolling: touch; /* Smooth scrolling on touch devices */
-            scroll-snap-type: x mandatory; /* Enable snap effect */
         }
 
         .button {
@@ -44,7 +42,6 @@
             cursor: pointer;
             transition: background-color 0.3s;
             flex: 0 0 auto; /* Don't grow or shrink */
-            scroll-snap-align: start; /* Align to start when scrolling */
         }
 
         .button:hover {
@@ -53,6 +50,10 @@
 
         @media (max-width: 600px) {
             .button-container {
+                display: none;
+            }
+            .slick-slider {
+                width: 100%;
                 padding: 10px 0;
             }
         }
@@ -120,6 +121,11 @@
 <body>
     <div class="container">
         <div class="button-container">
+            <button class="button" id="btnOnDemand">On-Demand Tournaments</button>
+            <button class="button" id="btnSaturday">Saturday Side Events</button>
+            <button class="button" id="btnSunday">Sunday Side Events</button>
+        </div>
+        <div class="carousel-container">
             <button class="button" id="btnOnDemand">On-Demand Tournaments</button>
             <button class="button" id="btnSaturday">Saturday Side Events</button>
             <button class="button" id="btnSunday">Sunday Side Events</button>
