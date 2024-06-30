@@ -1,1 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournament Schedule - Mobile</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+        body, html {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            background-color: transparent;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .carousel-container {
+            width: 100%;
+            padding: 10px 0;
+        }
+
+        .button {
+            background-color: #8A0303;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 20px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #670202;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            overflow: auto;
+        }
+
+        .modal-content {
+            background-color: #1e1e1e;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #8A0303;
+            width: 90%;
+            border-radius: 10px;
+            overflow-y: auto;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-section {
+            border-bottom: 1px solid #8A0303;
+            padding: 10px 0;
+        }
+
+        .modal-section:last-child {
+            border-bottom: none;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h2 {
+            margin-bottom: 10px;
+        }
+
+        .header p.note {
+            margin-top: 0;
+            padding-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="carousel-container">
+            <button class="button" id="btnOnDemand">On-Demand Tournaments</button>
+            <button class="button" id="btnSaturday">Saturday Side Events</button>
+            <button class="button" id="btnSunday">Sunday Side Events</button>
+        </div>
+    </div>
+
+
+      <!-- On-Demand Tournaments Modal -->
+        <div id="modalOnDemand" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeOnDemand">&times;</span>
+                <div class="header">
+                    <h2>On-Demand Tournaments</h2>
+                    <p class="note">No decklist is required for On-demand events</p>
+                </div>
+                <div class="modal-section">
+                    <div class="card">
+                        <h2>4 Duelist Constructed</h2>
+                        <p class="details"><strong>Format:</strong> Advanced Constructed Single Elimination</p>
+                        <p class="details"><strong>Start Time:</strong> All weekend as fast as we have 4 players signed up.</p>
+                        <p class="details"><strong>Entry Fee:</strong> 5EUR</p>
+                        <p class="details"><strong>Entry Prizing:</strong> 2 OTS packs</p>
+                        <p class="details"><strong>Prizes:</strong> Winner: 10EUR store credits, 2nd place: 5EUR store credits</p>
+                    </div>
+                </div>
+                <div class="modal-section">
+                    <div class="card">
+                        <h2>Time Wizard 2005 format (GOAT)</h2>
+                        <p class="details"><strong>Format:</strong> Time Wizard Format Single Elimination, Forbidden & Limited List – Yu-Gi-Oh!, Releases up to: 31 July, 2005</p>
+                        <p class="details"><strong>Start Time:</strong> All weekend as fast as we have 4 players signed up.</p>
+                        <p class="details"><strong>Entry Fee:</strong> 5EUR</p>
+                        <p class="details"><strong>Entry Prizing:</strong> 2x OTS boosters OR 1x Old-School 25th anniversary booster packs (LOB, MRL, SRL, PSV, IOC)</p>
+                        <p class="details"><strong>Prizes:</strong> Winner: 10EUR store credits, 2nd place: 5EUR store credits</p>
+                    </div>
+                </div>
+                <div class="modal-section">
+                    <div class="card">
+                        <h2>Time Wizard March 2010 List (Edison)</h2>
+                        <p class="details"><strong>Format:</strong> Time Wizard Format Single Elimination, Forbidden & Limited List – Yu-Gi-Oh!, Releases up to: 28 April 2010</p>
+                        <p class="details"><strong>Start Time:</strong> All weekend as fast as we have 4 players signed up.</p>
+                        <p class="details"><strong>Entry Fee:</strong> 5EUR</p>
+                        <p class="details"><strong>Entry Prizing:</strong> 2x OTS boosters OR 1x Old-School 25th anniversary booster packs (LOB, MRL, SRL, PSV, IOC)</p>
+                        <p class="details"><strong>Prizes:</strong> Winner: 10EUR store credits, 2nd place: 5EUR store credits</p>
+                    </div>
+                </div>
+                <div class="modal-section">
+                    <div class="card">
+                        <h2>Speed Dueling - 4 Duelist Constructed</h2>
+                        <p class="details"><strong>Format:</strong> Speed Duel Public Events Limited List – Yu-Gi-Oh!</p>
+                        <p class="details"><strong>Start Time:</strong> All weekend as fast as we have 4 players signed up.</p>
+                        <p class="details"><strong>Entry Fee:</strong> 5EUR</p>
+                        <p class="details"><strong>Entry Prizing:</strong> 2x OTS packs</p>
+                        <p class="details"><strong>Prizes:</strong> Winner: 10EUR store credits, 2nd place: 5EUR store credits</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      <!-- Saturday Side Events Modal -->
+      <div id="modalSaturday" class="modal">
+        <div class="modal-content">
+          <span class="close" id="closeSaturday">&times;</span>
+          <div class="header">
+            <h2>Scheduled Saturday Side Events</h2>
+            <p class="note">Paper or Digital Decklist is required for these events</p>
+          </div>
+          <div class="modal-section">
+            <div class="card">
+              <h2>Time Wizard March 2010 List (Edison)</h2>
+              <p class="details">
+                <strong>Format:</strong> Time Wizard, Swiss format, Forbidden & Limited List – Yu-Gi-Oh! (yugioh-card.com), Releases up to: 28 April 2010
+              </p>
+              <p class="details">
+                <strong>Start Time:</strong> 16:00-21:10
+              </p>
+              <p class="details">
+                <strong>Entry Fee:</strong> 10EUR
+              </p>
+              <p class="details">
+                <strong>Entry Prizing:</strong> 4x OTS boosters OR 2x Old-School 25th anniversary booster packs (LOB, MRL, SRL, PSV, IOC)
+              </p>
+              <p class="details">
+                <strong>Prizes:</strong> Winner: 20EUR store credits, 2nd place: 15EUR store credits, 3rd place: 10EUR store credits, 4th place: 5EUR store credits
+              </p>
+            </div>
+          </div>
+          <div class="modal-section">
+            <div class="card">
+              <h2>2nd Chance Championship Cup Saturday</h2>
+              <p class="details">
+                <strong>Format:</strong> Current format, Advanced Constructed, Single Elimination, <a href="https://www.yugioh-card.com/en/limited/list_2024-04-15/" target="_blank">Forbidden & Limited List</a>
+              </p>
+              <p class="details">
+                <strong>Start Time:</strong> 17:30-21:30
+              </p>
+              <p class="details">
+                <strong>Entry Fee:</strong> 10EUR
+              </p>
+              <p class="details">
+                <strong>Entry Prizing:</strong> 4 OTS boosters
+              </p>
+              <p class="details">
+                <strong>Prizes:</strong> Winner: 20EUR store credits, 2nd place: 15EUR store credits, 3rd place: 10EUR store credits, 4th place: 5EUR store credits
+              </p>
+            </div>
+          </div>
+          <div class="modal-section">
+            <div class="card">
+              <h2>Speed Duel Championship</h2>
+              <p class="details">
+                <strong>Format:</strong> Advanced Constructed, Swiss format, Speed Duel Public Events Limited List – Yu-Gi-Oh! (yugioh-card.com)
+              </p>
+              <p class="details">
+                <strong>Start Time:</strong> 15:00-18:00
+              </p>
+              <p class="details">
+                <strong>Entry Fee:</strong> 10EUR
+              </p>
+              <p class="details">
+                <strong>Entry Prizing:</strong> 2x OTS packs
+              </p>
+              <p class="details">
+                <strong>Prizes:</strong> Winner: 20EUR store credits, 2nd place: 15EUR store credits, 3rd place: 10EUR store credits
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Sunday Side Events Modal -->
+      <div id="modalSunday" class="modal">
+        <div class="modal-content">
+          <span class="close" id="closeSunday">&times;</span>
+          <div class="header">
+            <h2>Scheduled Sunday Side Events</h2>
+            <p class="note">Paper or Digital Decklist is required for these events</p>
+          </div>
+          <div class="modal-section">
+            <div class="card">
+              <h2>2nd Chance Championship Cup Sunday</h2>
+              <p class="details">
+                <strong>Format:</strong> Advanced Constructed, Swiss format
+              </p>
+              <p class="details">
+                <strong>Start Time:</strong> 11:30-14:30
+              </p>
+              <p class="details">
+                <strong>Entry Fee:</strong> 10EUR
+              </p>
+              <p class="details">
+                <strong>Entry Prizing:</strong> 4 OTS boosters
+              </p>
+              <p class="details">
+                <strong>Prizes:</strong> Winner: 20EUR store credits, 2nd place: 15EUR store credits, 3rd place: 10EUR store credits, 4th place: 5EUR store credits
+              </p>
+            </div>
+          </div>
+          <div class="modal-section">
+            <div class="card">
+              <h2>Time Wizard March 2005 List (GOAT)</h2>
+              <p class="details">
+                <strong>Format:</strong> Time Wizard Format, Swiss format, Forbidden & Limited List – Yu-Gi-Oh! (yugioh-card.com), Releases up to: 31 July, 2005
+              </p>
+              <p class="details">
+                <strong>Start Time:</strong> 14:30-17:30
+              </p>
+              <p class="details">
+                <strong>Entry Fee:</strong> 10EUR
+              </p>
+              <p class="details">
+                <strong>Entry Prizing:</strong> 4x OTS boosters OR 2x Old-School 25th anniversary booster packs (LOB, MRL, SRL, PSV, IOC)
+              </p>
+              <p class="details">
+                <strong>Prizes:</strong> Winner: 20EUR store credits, 2nd place: 15EUR store credits, 3rd place: 10EUR store credits, 4th place: 5EUR store credits
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.carousel-container').slick({
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                dots: true,
+                arrows: true,
+                autoplay: false
+            });
+    
+            var modals = document.querySelectorAll('.modal');
+            var buttons = document.querySelectorAll('.button');
+            var spans = document.querySelectorAll('.close');
+    
+            buttons.forEach(function(button) {
+                button.onclick = function() {
+                    var modalId = button.getAttribute('id').replace('btn', 'modal');
+                    var modal = document.getElementById(modalId);
+                    if (modal) {
+                        modal.style.display = "block";
+                    }
+                };
+            });
+    
+            spans.forEach(function(span) {
+                span.onclick = function() {
+                    span.closest('.modal').style.display = "none";
+                };
+            });
+    
+            window.onclick = function(event) {
+                modals.forEach(function(modal) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                });
+            };
+        });
+    </script>
+
+</body>
+</html>
