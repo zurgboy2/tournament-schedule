@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -116,7 +115,6 @@
     </div>
 
 
-      <!-- On-Demand Tournaments Modal -->
         <div id="modalOnDemand" class="modal">
             <div class="modal-content">
                 <span class="close" id="closeOnDemand">&times;</span>
@@ -299,11 +297,11 @@
                 arrows: true,
                 autoplay: false
             });
-    
+
             var modals = document.querySelectorAll('.modal');
             var buttons = document.querySelectorAll('.button');
             var spans = document.querySelectorAll('.close');
-    
+
             buttons.forEach(function(button) {
                 button.onclick = function() {
                     var modalId = button.getAttribute('id').replace('btn', 'modal');
@@ -313,13 +311,13 @@
                     }
                 };
             });
-    
+
             spans.forEach(function(span) {
                 span.onclick = function() {
                     span.closest('.modal').style.display = "none";
                 };
             });
-    
+
             window.onclick = function(event) {
                 modals.forEach(function(modal) {
                     if (event.target == modal) {
@@ -329,6 +327,5 @@
             };
         });
     </script>
-
 </body>
 </html>
