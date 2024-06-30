@@ -309,6 +309,7 @@
           </div>
         </div>
       </div>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 <script>
@@ -329,8 +330,11 @@
 
         buttons.forEach(function(button) {
             button.onclick = function() {
-                var modalId = button.id.replace('btn', 'modal');
-                document.getElementById(modalId).style.display = "block";
+                var modalId = button.getAttribute('id').replace('btn', 'modal');
+                var modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.style.display = "block";
+                }
             };
         });
 
@@ -349,6 +353,7 @@
         };
     });
 </script>
+
 
 </body>
 </html>
