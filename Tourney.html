@@ -312,13 +312,25 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 <script>
+    $(document).ready(function(){
+        $('.carousel-container').slick({
+            infinite: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: true,
+            arrows: true,
+            autoplay: false
+        });
+
+        // Handle button clicks for all buttons, regardless of container
         var modals = document.querySelectorAll('.modal');
         var buttons = document.querySelectorAll('.button');
         var spans = document.querySelectorAll('.close');
 
-        buttons.forEach(function(button, index) {
+        buttons.forEach(function(button) {
             button.onclick = function() {
-                modals[index].style.display = "block";
+                var modalId = button.id.replace('btn', 'modal');
+                document.getElementById(modalId).style.display = "block";
             };
         });
 
@@ -335,17 +347,8 @@
                 }
             });
         };
-    
-        $(document).ready(function(){
-            $('.carousel-container').slick({
-                infinite: true,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                dots: true,
-                arrows: true,
-                autoplay: false
-            });
-        });
-    </script>
+    });
+</script>
+
 </body>
 </html>
