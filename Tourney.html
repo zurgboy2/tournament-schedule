@@ -25,11 +25,15 @@
             justify-content: center; /* Center container on the page */
             height: 100vh;
         }
-
+        
         .button-container {
             display: flex;
             justify-content: center;
             gap: 10px;
+        }
+        
+        .carousel-container {
+            display: none;
         }
 
         .button {
@@ -43,7 +47,7 @@
             transition: background-color 0.3s;
             flex: 0 0 auto; /* Don't grow or shrink */
         }
-
+        
         .button:hover {
             background-color: #670202;
         }
@@ -52,7 +56,8 @@
             .button-container {
                 display: none;
             }
-            .slick-slider {
+            .carousel-container {
+                display: block;
                 width: 100%;
                 padding: 10px 0;
             }
