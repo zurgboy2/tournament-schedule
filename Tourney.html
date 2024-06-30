@@ -302,7 +302,9 @@
           </div>
         </div>
       </div>
-    <script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script>
         var modals = document.querySelectorAll('.modal');
         var buttons = document.querySelectorAll('.button');
         var spans = document.querySelectorAll('.close');
@@ -326,6 +328,17 @@
                 }
             });
         };
+    
+        $(document).ready(function(){
+            $('.carousel-container').slick({
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                dots: true,
+                arrows: true,
+                autoplay: false
+            });
+        });
     </script>
 </body>
 </html>
