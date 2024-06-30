@@ -14,6 +14,9 @@
             background-color: transparent;
             color: white;
             font-family: 'Roboto', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .container {
@@ -21,13 +24,15 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            width: 100%;
+            padding: 0 10px; /* Add padding to prevent cut off */
         }
 
         .button-container {
             display: flex;
             justify-content: center;
             gap: 10px;
+            flex-wrap: wrap; /* Allow buttons to wrap to new lines if necessary */
         }
 
         .button {
@@ -39,6 +44,9 @@
             font-size: 18px;
             cursor: pointer;
             transition: background-color 0.3s;
+            flex: 1; /* Allow buttons to grow and shrink */
+            max-width: calc(33.33% - 20px); /* Ensure buttons don't get too wide */
+            box-sizing: border-box; /* Include padding and border in element's width */
         }
 
         .button:hover {
@@ -286,7 +294,6 @@
           </div>
         </div>
       </div>
-
 
     <script>
         var modals = document.querySelectorAll('.modal');
