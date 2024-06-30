@@ -4,15 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tournament Schedule</title>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
         body, html {
-            height: 100%; /* Full height */
+            height: 100%;
             margin: 0;
-            overflow: hidden; /* Prevent scrolling on the body */
+            overflow: hidden;
             background-color: transparent;
             color: white;
             font-family: 'Roboto', sans-serif;
@@ -22,18 +20,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center; /* Center container on the page */
+            justify-content: center;
             height: 100vh;
         }
-        
+
         .button-container {
             display: flex;
             justify-content: center;
             gap: 10px;
-        }
-        
-        .carousel-container {
-            display: none;
         }
 
         .button {
@@ -45,22 +39,10 @@
             font-size: 18px;
             cursor: pointer;
             transition: background-color 0.3s;
-            flex: 0 0 auto; /* Don't grow or shrink */
-        }
-        
-        .button:hover {
-            background-color: #670202;
         }
 
-        @media (max-width: 600px) {
-            .button-container {
-                display: none;
-            }
-            .carousel-container {
-                display: block;
-                width: 100%;
-                padding: 10px 0;
-            }
+        .button:hover {
+            background-color: #670202;
         }
 
         .modal {
@@ -72,7 +54,7 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.8);
-            overflow: auto; /* Scroll on modal */
+            overflow: auto;
         }
 
         .modal-content {
@@ -82,7 +64,7 @@
             border: 1px solid #8A0303;
             width: 90%;
             border-radius: 10px;
-            overflow-y: auto; /* Enable scrolling within the modal */
+            overflow-y: auto;
         }
 
         .close {
@@ -126,11 +108,6 @@
 <body>
     <div class="container">
         <div class="button-container">
-            <button class="button" id="btnOnDemand">On-Demand Tournaments</button>
-            <button class="button" id="btnSaturday">Saturday Side Events</button>
-            <button class="button" id="btnSunday">Sunday Side Events</button>
-        </div>
-        <div class="carousel-container">
             <button class="button" id="btnOnDemand">On-Demand Tournaments</button>
             <button class="button" id="btnSaturday">Saturday Side Events</button>
             <button class="button" id="btnSunday">Sunday Side Events</button>
@@ -310,20 +287,8 @@
         </div>
       </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-<script>
-    $(document).ready(function(){
-        $('.carousel-container').slick({
-            infinite: true,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            dots: true,
-            arrows: true,
-            autoplay: false
-        });
 
-        // Handle button clicks for all buttons, regardless of container
+    <script>
         var modals = document.querySelectorAll('.modal');
         var buttons = document.querySelectorAll('.button');
         var spans = document.querySelectorAll('.close');
@@ -351,9 +316,6 @@
                 }
             });
         };
-    });
-</script>
-
-
+    </script>
 </body>
 </html>
