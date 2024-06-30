@@ -285,33 +285,29 @@
           </div>
         </div>
       </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            console.log('Document ready, initializing carousel...');
-            $('.carousel-container').slick({
-                infinite: true,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                dots: true,
-                arrows: true,
-                autoplay: false
-            });
-    
-            console.log('Carousel initialized.');
-            
-            var modals = document.querySelectorAll('.modal');
-            var buttons = document.querySelectorAll('.button');
-            var spans = document.querySelectorAll('.close');
-    
-            console.log('Buttons found:', buttons);
-            console.log('Modals found:', modals);
-    
-            buttons.forEach(function(button) {
-                button.onclick = function() {
-                    console.log('Button clicked:', button);
-                    var modalId = button.getAttribute('id').replace('btn', 'modal');
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                console.log('Document ready, initializing carousel...');
+        
+                $('.carousel-container').slick({
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    dots: true,
+                    arrows: true,
+                    autoplay: false
+                });
+        
+                console.log('Carousel initialized.');
+        
+                var modals = document.querySelectorAll('.modal');
+                console.log('Modals found:', modals);
+        
+                $(document).on('click', '.button', function() {
+                    console.log('Button clicked:', this);
+                    var modalId = $(this).attr('id').replace('btn', 'modal');
                     console.log('Corresponding modal ID:', modalId);
                     var modal = document.getElementById(modalId);
                     if (modal) {
@@ -320,26 +316,24 @@
                     } else {
                         console.log('Modal not found for ID:', modalId);
                     }
-                };
-            });
-    
-            spans.forEach(function(span) {
-                span.onclick = function() {
-                    console.log('Close button clicked:', span);
-                    span.closest('.modal').style.display = "none";
-                };
-            });
-    
-            window.onclick = function(event) {
-                console.log('Window clicked:', event);
-                modals.forEach(function(modal) {
-                    if (event.target == modal) {
-                        console.log('Click outside modal detected, hiding modal:', modal);
-                        modal.style.display = "none";
-                    }
                 });
-            };
-        });
-    </script>
+        
+                $('.close').on('click', function() {
+                    console.log('Close button clicked:', this);
+                    $(this).closest('.modal').css('display', 'none');
+                });
+        
+                window.onclick = function(event) {
+                    console.log('Window clicked:', event);
+                    modals.forEach(function(modal) {
+                        if (event.target == modal) {
+                            console.log('Click outside modal detected, hiding modal:', modal);
+                            modal.style.display = "none";
+                        }
+                    });
+                };
+            });
+        </script>
+
 </body>
 </html>
