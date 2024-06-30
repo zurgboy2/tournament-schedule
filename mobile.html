@@ -109,9 +109,9 @@
 <body>
     <div class="container">
         <div class="carousel-container">
-            <button class="button" data-modal="modalOnDemand">On-Demand Tournaments</button>
-            <button class="button" data-modal="modalSaturday">Saturday Side Events</button>
-            <button class="button" data-modal="modalSunday">Sunday Side Events</button>
+            <button class="button">On-Demand Tournaments</button>
+            <button class="button">Saturday Side Events</button>
+            <button class="button">Sunday Side Events</button>
         </div>
     </div>
 
@@ -302,29 +302,35 @@
 
             console.log('Carousel initialized.');
 
-            var modals = document.querySelectorAll('.modal');
-            console.log('Modals found:', modals);
-
-            $(document).on('click', '.button', function() {
-                console.log('Button clicked:', this);
-                var modalId = $(this).data('modal');
-                console.log('Corresponding modal ID:', modalId);
+            function showModal(modalId) {
+                console.log('Displaying modal with ID:', modalId);
                 var modal = document.getElementById(modalId);
                 if (modal) {
-                    console.log('Modal found, displaying modal:', modal);
                     modal.style.display = "block";
                 } else {
                     console.log('Modal not found for ID:', modalId);
                 }
+            }
+
+            $(document).on('click', '.button', function() {
+                var buttonText = $(this).text().trim();
+                console.log('Button clicked with text:', buttonText);
+                if (buttonText === 'On-Demand Tournaments') {
+                    showModal('modalOnDemand');
+                } else if (buttonText === 'Saturday Side Events') {
+                    showModal('modalSaturday');
+                } else if (buttonText === 'Sunday Side Events') {
+                    showModal('modalSunday');
+                }
             });
 
-            $('.close').on('click', function() {
+            $(document).on('click', '.close', function() {
                 console.log('Close button clicked:', this);
                 $(this).closest('.modal').css('display', 'none');
             });
 
             window.onclick = function(event) {
-                console.log('Window clicked:', event);
+                var modals = document.querySelectorAll('.modal');
                 modals.forEach(function(modal) {
                     if (event.target == modal) {
                         console.log('Click outside modal detected, hiding modal:', modal);
